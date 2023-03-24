@@ -2,7 +2,7 @@ document.getElementById('adviceButton').addEventListener('click', getAdvice);
 document.getElementById('conversationButton').addEventListener('click', showConversation);
 
 const adviceList = [
-  'Believe In yourself',
+ 'Believe In yourself',
   'Take breaks when working',
   'Stay curious and keep learning',
   'Set realistic goals',
@@ -60,56 +60,23 @@ function getAdvice() {
   document.getElementById('adviceText').innerHTML = advice;
 }
 
-const conversationImages = [
-  'conversation-1.png',
-  'conversation-2.png',
-  'conversation-3.png',
-  'conversation-4.png',
-  'conversation-5.png',
-  'conversation-6.png',
-  'conversation-7.png',
-  'conversation-8.png',
-  'conversation-9.png',
-  'conversation-10.png',
-  'conversation-11.png',
-  'conversation-12.png',
-  'conversation-13.png',
-  'conversation-14.png',
-  'conversation-15.png',
-  'conversation-16.png',
-  'conversation-17.png',
-  'conversation-18.png',
-  'conversation-19.png',
-  'conversation-20.png',
-  'conversation-21.png',
-  'conversation-22.png',
-  'conversation-23.png',
-  'conversation-24.png',
-  'conversation-25.png',
-  'conversation-26.png',
-  'conversation-27.png',
-  'conversation-28.png',
-  'conversation-29.png',
-  'conversation-30.png',
-  'conversation-31.png',
-  'conversation-32.png',
-  'conversation-33.png',
-  'conversation-34.png',
-  'conversation-35.png',
-  'conversation-36.png',
-];
-
-let currentImageIndex = 0;
-
 function showConversation() {
   const conversationContainer = document.getElementById('conversationContainer');
-  const conversationImage = document.getElementById('conversationImage');
+  const conversationImagesDiv = document.getElementById('conversationImages');
   
   if (conversationContainer.style.display === 'none') {
     conversationContainer.style.display = 'block';
-    conversationImage.src = conversationImages[currentImageIndex];
+    if (!conversationImagesDiv.hasChildNodes()) {
+      conversationImages.forEach(image => {
+        const img = document.createElement('img');
+        img.src = image;
+        img.alt = 'Conversation Screenshot';
+        img.style.maxWidth = '100%';
+        img.style.display = 'block';
+        conversationImagesDiv.appendChild(img);
+      });
+    }
   } else {
-    currentImageIndex = (currentImageIndex + 1) % conversationImages.length;
-    conversationImage.src = conversationImages[currentImageIndex];
+    conversationContainer.style.display = 'none';
   }
 }
