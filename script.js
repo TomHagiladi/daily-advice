@@ -2,7 +2,7 @@ document.getElementById('adviceButton').addEventListener('click', getAdvice);
 document.getElementById('conversationButton').addEventListener('click', showConversation);
 
 const adviceList = [
-  'Believe in yourself',
+  'Believe In yourself',
   'Take breaks when working',
   'Stay curious and keep learning',
   'Set realistic goals',
